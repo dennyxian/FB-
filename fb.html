@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        #nav {
+            background-color: green;
+            width: 100%;
+            height: 56px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 9;
+        }
+
+        #nav-left {
+            /*background-color: black;*/
+            width: 30%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+        }
+
+        #fb {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 8px;
+            left: 20px;
+            background-image: url(./fb/fb.svg);
+        }
+
+        #search-fb {
+            width: 280px;
+            height: 40px;
+            position: absolute;
+            top: 8px;
+            left: 80px;
+            background-color: grey;
+            border-radius: 30px;
+        }
+
+        #search {
+            width: 280px;
+            height: 40px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            /*background-color: grey;*/
+            border-radius: 30px;
+            background-image: url(./fb/search.svg);
+            background-repeat: no-repeat;
+            z-index: 200;
+        }
+
+        #serch-text {
+            width: 240px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+            left: 100px;
+        }
+
+        #nav-mid {
+            /*background-color: pink;*/
+            width: 40%;
+            height: 100%;
+            position: absolute;
+            left: 30%;
+            top: 0;
+
+        }
+
+        #nav-mid-1 {
+            /*background-color: hotpink;*/
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-image: url(./fb/home.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #nav-mid-2 {
+            /*background-color: hotpink;*/
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 20%;
+            background-image: url(./fb/video.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+        #nav-mid-3 {
+            /*background-color: hotpink;*/
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 40%;
+            background-image: url(./fb/friends.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+        #nav-mid-4 {
+            /*background-color: hotpink;*/
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            right: 20%;
+            background-image: url(./fb/group.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+        #nav-mid-5 {
+            /*background-color: hotpink;*/
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            right: 0%;
+            background-image: url(./fb/marketplace.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+       #nav-right {
+            
+            width: 30%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 16px;
+        }
+        .header-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .header-icon:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+         /* Profile Section */
+        .profile-container {
+            margin-top: 56px;
+            background-color:brown;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover-photo {
+            width: 100%;
+            height: 348px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+            background-image: url(/img/dogs.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .edit-cover-btn {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .profile-info {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            position: relative;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: flex-end;
+            padding: 16px 0;
+            border-bottom: 1px solid #dadde1;
+        }
+
+        .profile-picture {
+            width: 168px;
+            height: 168px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-top: -84px;
+            margin-right: 16px;
+            position: relative;
+            background-image: url(./img/dog-1.jpg);
+            background-size: cover;
+            background-position: center;
+            
+
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        
+
+        .camera-icon {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background-color: #e4e6ea;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            
+        }
+
+        .profile-details {
+            flex: 1;
+            padding-bottom: 16px;
+        }
+
+        .profile-name {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color:white;
+        }
+
+        .friends-count {
+            color: #65676b;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 8px;
+            margin-left: auto;
+            align-items: flex-end;
+            padding-bottom: 16px;
+        }
+
+        .btn-primary {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background-color: #e4e6ea;
+            color: #1c1e21;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-icon {
+            background-color: #e4e6ea;
+            border: none;
+            border-radius: 6px;
+            padding: 8px;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation Tabs */
+        .profile-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-tab {
+            padding: 16px 16px;
+            color: #65676b;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-tab.active {
+            color: #1877f2;
+            border-bottom-color: #1877f2;
+        }
+
+        .nav-tab:hover {
+            background-color: #f2f2f2;
+            border-radius: 6px 6px 0 0;
+        }
+
+        /* Content Area */
+        .content-area {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .left-column {
+            width: 360px;
+        }
+
+        .right-column {
+            flex: 1;
+        }
+
+        .card {
+            background-color:peru;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .post-composer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background-color:rgb(200, 200, 200);
+            border-radius: 24px;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+
+        .composer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1877f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .composer-placeholder {
+            color: #65676b;
+            font-size: 16px;
+        }
+        .s-img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div id="nav-left">
+            <div id="fb"></div>
+            <div id="search-fb">
+                <div id="search"></div>
+                <div id="search-text"></div>
+            </div>
+        </div>
+        <div id="nav-mid">
+            <div id="nav-mid-1"></div>
+            <div id="nav-mid-2"></div>
+            <div id="nav-mid-3"></div>
+            <div id="nav-mid-4"></div>
+            <div id="nav-mid-5"></div>
+        </div>
+        <div id="nav-right">
+             <div class="header-icons">
+                <div class="header-icon">
+                    <img src="/fb/menu.svg" alt="menu">
+                </div>
+                <div class="header-icon">
+                    <img src="/fb/messenger.svg" alt="ms">
+                </div>
+                <div class="header-icon">
+                    <img src="/fb/notice.svg" alt="notice">
+                </div>
+                <div class="header-icon">
+                    <img src="/img/dog-1.jpg" alt="" class="s-img">
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- Profile Container -->
+    <div class="profile-container">
+        <!-- Cover Photo -->
+        <div class="cover-photo">
+            <div class="cover-image"></div>
+            <button class="edit-cover-btn">📷 編輯封面相片</button>
+        </div>
+
+        <!-- Profile Info -->
+        <div class="profile-info">
+            <div class="profile-header">
+                <div class="profile-picture">
+                    <div class="camera-icon">📷</div>
+                </div>
+                
+                <div class="profile-details">
+                    <h1 class="profile-name">鄭耕弦</h1>
+                    <p class="friends-count">999 位朋友</p>
+                </div>
+                
+                <div class="profile-actions">
+                    <button class="btn-primary">
+                        ➕ 新增到限時動態
+                    </button>
+                    <button class="btn-secondary">
+                        ✏️ 編輯個人檔案
+                    </button>
+                    <button class="btn-icon">⋯</button>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation Tabs -->
+        <div class="profile-nav">
+            <div class="nav-tab active">貼文</div>
+            <div class="nav-tab">關於</div>
+            <div class="nav-tab">朋友</div>
+            <div class="nav-tab">相片</div>
+            <div class="nav-tab">打卡動態</div>
+            <div class="nav-tab">運動</div>
+            <div class="nav-tab">更多 ▼</div>
+        </div>
+        <!-- Content Area -->
+    <div class="content-area">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="card">
+                <h3 class="card-title">簡介</h3>
+                <p style="color: #65676b; font-size: 15px;">尚未新增任何詳細資料</p>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="card">
+                <div class="post-composer">
+                    <div class="composer-avatar"></div>
+                    <div class="composer-placeholder">在想些什麼？</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
